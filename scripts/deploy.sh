@@ -16,7 +16,10 @@ echo "Stopping old container..."
 sudo docker stop devops-container || true
 
 echo "Removing old container..."
-sudo docker rm devops-container || true
+sudo docker rm -f devops-container || true
+
+echo "Waiting for port 5000 to be released..."
+sleep 3
 
 echo "Starting new container..."
 sudo docker run -d \
